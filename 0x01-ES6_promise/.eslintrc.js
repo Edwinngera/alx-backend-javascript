@@ -1,35 +1,22 @@
 module.exports = {
-  env: {
-    browser: false,
-    es6: true,
-    jest: true,
+  'env': {
+    'browser': true,
+    'es2021': true,
+    'node': true,
+    'jest': true
   },
-  extends: [
-    'airbnb-base',
-    'plugin:jest/all',
-  ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+  'extends': 'eslint:recommended',
+  'parserOptions': {
+    'ecmaVersion': 12,
+    'sourceType': 'module'
   },
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
-  plugins: ['jest'],
-  rules: {
-    'no-console': 'off',
-    'no-shadow': 'off',
-    'no-restricted-syntax': [
-      'error',
-      'LabeledStatement',
-      'WithStatement',
-    ],
-  },
-  overrides:[
-    {
-      files: ['*.js'],
-      excludedFiles: 'babel.config.js',
-    }
-  ]
+  'rules': {
+    'quotes': ['error', 'single'],
+    // we want to force semicolons
+    'semi': ['error', 'always'],
+    // we use 2 spaces to indent our code
+    'indent': ['error', 2],
+    // we want to avoid extraneous spaces
+    'no-multi-spaces': ['error']
+  }
 };
